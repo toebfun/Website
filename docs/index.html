@@ -1,66 +1,39 @@
+<div class="div">
+<h>/</h><a class="a">About Me</a>
+<div></div>
+<h>/</h><a class="b" href="projects.html">Projects</a>
+<div></div>
+<h>/</h><a  class="c">Contact Me</a>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@1,300&display=swap" rel="stylesheet">
-<title>toeb.fun</title>
-<center class="cool">
-<div class="div"></div>
-<p class="HTML">My Most Recent Projects;</p>
-<a class="HTML" href="hex.html">Hex Code Generator - 18/9/21</a>
-<div></div>
-</center>
-
+<link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+</div>
 <style>
+.div {
+position: absolute;
+top: 27%;
+font-size:120px;
+right:42%;
+}
+h {
+font-family: arial;
+  font-weight: bold;
+color: white;
+}
+a {
+font-family: 'Oswald', sans-serif;
+font-size:60px;
+}
+.a {
+color: ffd166;
+}
+.b {
+color: d62828;
+}
+.c {
+color: 06d6a0;
+}
 html {
-background-color: 003049;
-}
-h1 {
-font-family: 'Roboto Mono', monospace;
-color: white;
-}
-.HTML {
-color: white;
-font-family: 'Roboto Mono', monospace;
-text-align: middle;
-
-}
-.cool {
-color: green;
-font-family: 'Roboto Mono', monospace;
-text-align: middle; 
-}
-/* Global */
-html{
-  min-height: 100%;
-  overflow: hidden;
-}
-body{
-  height: calc(100vh - 8em);
-  padding: 4em;
-  color: rgba(255,255,255,.75);
-}
-.html{
-    position: relative;
-    top: 50%;  
-    width: 24em;
-    margin: 0 auto;
-    border-right: 2px solid rgba(255,255,255,.75);
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    transform: translateY(-50%);    
-}
-
-/* Animation */
-.html{
-  animation: typewriter 5s steps(44) 0s 1 normal both,
-             blinkTextCursor 500ms steps(44) infinite normal;
-}
-@keyframes typewriter{
-  from{width: 0;}
-  to{width: 15em;}
-}
-@keyframes blinkTextCursor{
-  from{border-right-color: rgba(255,255,255,.75);}
-  to{border-right-color: transparent;}
+background-color: #14213d;
 }
 </style>
