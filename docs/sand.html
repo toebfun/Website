@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<center>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</center>
+<style>
+canvas {
+
+}
+</style>
+</head>
+<body onload="startGame()">
+<script>
+
+var myGamePiece;
+
+function startGame() {
+    myGamePiece = new component(100, 100, "#c2b280", 900, 75);
+    myGameArea.start();
+}
+
+var myGameArea = {
+    canvas : document.createElement("canvas"),
+    start : function() {
+        this.canvas.width = 1000;
+        this.canvas.height = 900;
+        this.context = this.canvas.getContext("2d");
+        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+        this.interval = setInterval(updateGameArea, 20);        
+    },
+    stop : function() {
+        clearInterval(this.interval);
+    },    
+    clear : function() {
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    }
+}
+
+function component(width, height, color, x, y, type) {
+    this.type = type;
+    this.width = width;
+    this.height = height;
+    this.x = x;
+    this.y = y;    
+    this.speedX = 0;
+    this.speedY = 0;    
+    this.gravity = 0.45;
+    this.gravitySpeed = 0;
+    this.update = function() {
+        ctx = myGameArea.context;
+        ctx.fillStyle = color;
+        ctx.fillRect(this.x, this.y, this.width, this.height);
+    }
+    this.newPos = function() {
+        this.gravitySpeed += this.gravity;
+        this.x += this.speedX;
+        this.y += this.speedY + this.gravitySpeed;        
+    }
+}
+
+function updateGameArea() {
+    myGameArea.clear();
+    myGamePiece.newPos();
+    myGamePiece.update();
+}
+
+</script>
+
+
+</body>
+</html>
+
+<div id="startBtn"; id="startBtn"> 
+
+<center>
+  <span id="counter1"></span> 
+  <span id="counter"></span> 
+</center>
+
+</div> 
+<script>
+const counter = document.querySelector("#counter"); 
+const resetBtn = document.querySelector("#resetBtn"); 
+const startBtn = document.querySelector("#startBtn"); 
+const stopBtn = document.querySelector("#stopBtn"); 
+counter.innerHTML = 0; 
+let interval; 
+let i = 0;
+window.addEventListener('load', startCounter); 
+resetBtn.addEventListener("click", resetCounter); 
+function startCounter(){ 
+  interval = setInterval(function() { 
+    counter.innerHTML= i++; 
+  }, 42); 
+} 
+ 
+function stopCounter(){ 
+  clearInterval(interval); 
+} 
+ 
+function resetCounter(){ 
+  clearInterval(interval); 
+  i = 0; 
+  counter.innerHTML = i; 
+} 
+</script>
+<style>
+span {
+font-size: 50px;
+  top: 0%;
+font-family: 'Russo One', sans-serif;
+}
+.counter {
+  position: absolute;
+left: 10%;
+}
+.counter1 {
+  position: absolute;
+left: 30%;
+}
+
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
